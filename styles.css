@@ -38,7 +38,7 @@ body {
 /* Defaults */
 .btn {
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: solid 1px var(--border-color);
   margin: 0.5rem;
   width: 10rem;
@@ -60,6 +60,9 @@ body {
 }
 /* HEADER */
 
+.header {
+  width: 100%;
+}
 .header__container {
   border-bottom: solid 1px var(--border-color);
   display: flex;
@@ -74,6 +77,7 @@ body {
   list-style: none;
 }
 .header__menu-link {
+  font-size: 1rem;
   text-decoration: none;
   padding: 1rem 1.5rem;
   color: var(--nav-text-color);
@@ -122,6 +126,8 @@ body {
   justify-content: center;
 }
 .hero__subtitle {
+  font-style: italic;
+  font-size: 1rem;
   border: solid 1px transparent;
   background-color: var(--glassmorph);
   backdrop-filter: blur(10px);
@@ -184,14 +190,15 @@ body {
   display: flex;
 }
 .contact__headline {
-  font-size: 1.6rem;
+  font-size: 2.3rem;
   color: var(--text-color);
 }
 .contact__svg {
   width: 2rem;
 }
 .contact__img {
-  width: 10rem;
+  object-fit: cover;
+  width: 12rem;
 }
 .contact__text {
   font-style: italic;
@@ -201,6 +208,7 @@ body {
 
 /* Footer */
 .footer {
+  width: 100%;
   margin: 0.5rem 0;
   padding: 1rem;
   border-bottom: 1px solid var(--border-color);
@@ -216,9 +224,144 @@ body {
   background-color: var(--primary-color);
 }
 .footer__copy {
+  font-size: 1rem;
   color: var(--text-color);
 }
 .footer__link {
+  font-size: 1rem;
   text-decoration: none;
   color: var(--text-color);
+}
+/* ==========================================================================
+   MEDIA QUERIES (Mobile-First Ansatz)
+   ========================================================================== */
+
+/* 1. Ab 600px Breite (z. B. Smartphones im Querformat oder kleinere Tablets) */
+@media (min-width: 750px) {
+  .btn {
+    font-size: 1.3rem;
+  }
+
+  .header__menu-link {
+    font-size: 1.3rem;
+  }
+  .hero__title {
+    font-size: 2.8rem;
+  }
+  .hero__subtitle {
+    font-size: 1.3rem;
+  }
+  .experience__content {
+    flex-direction: row;
+  }
+  .experience__img {
+    width: 30%;
+  }
+  .experience__content--inverted > img {
+    order: 1;
+  }
+  .experience__text {
+    font-size: 1.3rem;
+  }
+
+  .contact__headline {
+    font-size: 2.6rem;
+  }
+  .contact__header {
+    order: -2;
+  }
+
+  .contact__svg {
+    width: 5rem;
+  }
+  .contact__img {
+    width: 20rem;
+  }
+  .contact__text {
+    font-size: 1.3rem;
+  }
+  .contact__footer {
+    order: -1;
+  }
+
+  .contact__btn-container {
+    margin: auto;
+  }
+  .footer__copy {
+    font-size: 1.3rem;
+  }
+  .footer__link {
+    font-size: 1.3rem;
+  }
+}
+
+/* 3. Ab 1000px Breite (Große Tablets, Laptops und Desktop-Bildschirme) */
+@media (min-width: 1200px) {
+  .btn {
+    width: 15rem;
+    font-size: 1.5rem;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header {
+    max-width: 50%;
+  }
+  .main-content {
+    max-width: 50%;
+  }
+  .footer {
+    max-width: 50%;
+  }
+  .header__menu-link {
+    font-size: 1.5rem;
+  }
+  .hero__title {
+    font-size: 3rem;
+  }
+  .hero__subtitle {
+    font-size: 1.5rem;
+  }
+  .experience__content {
+    flex-direction: row;
+  }
+  .experience__img {
+    width: 30%;
+  }
+  .experience__text {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .contact__headline {
+    font-size: 3rem;
+  }
+  .contact__header {
+    order: -2;
+  }
+
+  .contact__svg {
+    width: 7rem;
+  }
+  .contact__img {
+    width: 15rem;
+  }
+  .contact__text {
+    font-size: 1.5rem;
+  }
+  .contact__footer {
+    order: -1;
+  }
+
+  .contact__btn-container {
+    margin: auto;
+  }
+  .footer__copy {
+    font-size: 1.5rem;
+  }
+  .footer__link {
+    font-size: 1.5rem;
+  }
 }
