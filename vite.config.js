@@ -1,3 +1,3 @@
 export default {
-  Base: "/",
+  Base: "https://SilentCrouwd.github.io/",
 };
