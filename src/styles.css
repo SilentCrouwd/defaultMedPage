@@ -104,7 +104,7 @@ body {
   height: 750px;
   display: flex;
   flex-direction: column;
-  background-image: url(assets/buisnessLady.png);
+  background-image: url(/assets/buisnessLady.png);
   background-position: center;
   background-position-x: 60%;
 
