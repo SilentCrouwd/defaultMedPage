@@ -1,3 +1,1 @@
-export default {
-  Base: "/",
-};
+export default {};
