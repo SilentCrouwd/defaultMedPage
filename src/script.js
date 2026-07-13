@@ -1,1 +1,1 @@
-import "../styles.css"; // CSS direkt in JS importieren!
+import "./styles.css"; // CSS direkt in JS importieren!
