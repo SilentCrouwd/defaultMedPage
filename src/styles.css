@@ -24,14 +24,16 @@
 }
 :root {
   --text-color: rgb(255, 255, 255);
-  --border-color: black;
+  --border-color: rgba(0, 0, 0, 0.336);
   --nav-text-color: black;
   --glassmorph: rgba(128, 128, 128, 0.418);
-  --primary-color: rgb(90, 90, 90);
+  --primary-color: rgb(0, 14, 77);
+  --text-background-color: rgb(90, 89, 89);
+  --box-schadow: 1px 1px 1px 1px rgb(0, 14, 77);
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   font-family: "Noto Sans Kayah Li";
   background-color: rgb(233, 233, 220);
 }
@@ -48,16 +50,37 @@ body {
   color: var(--text-color);
   background-color: var(--primary-color);
   border-radius: 25px;
+  transition: all 0.4s ease;
+}
+.btn:hover {
+  background-color: transparent;
+  color: inherit;
+  border-color: var(--border-color);
+}
+.btn:active {
+  scale: 0.9;
 }
 .btn__hero__button--secondary {
   background-color: initial;
   color: initial;
+  border-color: var(--primary-color);
+}
+.btn__hero__button--secondary:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border-color: transparent;
 }
 .contact__btn {
   background-color: initial;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-color: var(--primary-color);
+}
+
+.contact__btn:hover {
+  color: var(--primary-color);
+  transition: all 0.4s ease;
 }
 /* HEADER */
 
@@ -80,8 +103,12 @@ body {
 .header__menu-link {
   font-size: 1rem;
   text-decoration: none;
-  padding: 1rem 1.5rem;
+  padding: 1rem 2rem;
   color: var(--nav-text-color);
+}
+.header__menu-link:hover {
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 /* 
     <!-- MAIN BLOCK --> */
@@ -145,7 +172,6 @@ body {
 .experience {
   margin: 0.5rem 0;
   padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
 }
 .experience__container {
   display: flex;
@@ -155,15 +181,21 @@ body {
 .experience__content {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  border-bottom: solid 1px var(--border-color);
+  padding-bottom: 1rem;
   gap: 1.5rem;
 }
 .experience__img {
-  width: 100%;
+  width: 80%;
 }
 .experience__text {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
   color: var(--text-color);
-  background-color: var(--primary-color);
+  background-color: var(--text-background-color);
   padding: 0.5rem;
 }
 /* Contact Section */
@@ -176,7 +208,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  background-color: var(--primary-color);
+  background-color: var(--text-background-color);
 }
 .contact__header {
   padding: 0.5rem;
@@ -222,8 +254,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary-color);
+  background-color: var(--text-background-color);
 }
+
 .footer__copy {
   font-size: 1rem;
   color: var(--text-color);
@@ -239,47 +272,68 @@ body {
 
 /* 1. Ab 600px Breite (z. B. Smartphones im Querformat oder kleinere Tablets) */
 @media (min-width: 750px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header {
+    max-width: 50%;
+  }
+  .header__menu-link {
+    padding: 1rem 3rem;
+  }
+
+  .main-content {
+    max-width: 50%;
+  }
+  .footer {
+    max-width: 50%;
+  }
   .btn {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .header__menu-link {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   .hero__title {
-    font-size: 2.8rem;
+    font-size: 2.3rem;
   }
   .hero__subtitle {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   .experience__content {
     flex-direction: row;
+    align-items: normal;
+    gap: 1rem;
   }
   .experience__img {
-    width: 30%;
+    min-width: calc(50% - 0.5rem);
   }
   .experience__content--inverted > img {
     order: 1;
   }
   .experience__text {
-    font-size: 1.3rem;
+    min-width: calc(50% - 0.5rem);
+    font-size: 1rem;
   }
 
   .contact__headline {
-    font-size: 2.6rem;
+    font-size: 2.1rem;
   }
   .contact__header {
     order: -2;
   }
 
   .contact__svg {
-    width: 5rem;
+    width: 3.5rem;
   }
   .contact__img {
-    width: 20rem;
+    width: 40%;
   }
   .contact__text {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   .contact__footer {
     order: -1;
@@ -289,10 +343,10 @@ body {
     margin: auto;
   }
   .footer__copy {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   .footer__link {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 }
 
@@ -317,40 +371,41 @@ body {
     max-width: 50%;
   }
   .header__menu-link {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .hero__title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   .hero__subtitle {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .experience__content {
     flex-direction: row;
   }
   .experience__img {
-    width: 30%;
+    min-width: calc(50% - 0.5rem);
   }
   .experience__text {
+    min-width: calc(50% - 0.5rem);
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .contact__headline {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   .contact__header {
     order: -2;
   }
 
   .contact__svg {
-    width: 7rem;
+    width: 5rem;
   }
   .contact__img {
-    width: 15rem;
+    width: 50%;
   }
   .contact__text {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .contact__footer {
     order: -1;
@@ -360,9 +415,9 @@ body {
     margin: auto;
   }
   .footer__copy {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   .footer__link {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 }
